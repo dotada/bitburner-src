@@ -229,6 +229,9 @@ export function SidebarRoot(props: IProps): React.ReactElement {
       } else if (event.code === KEYCODE.G && event.altKey && Player.gang) {
         event.preventDefault();
         clickPage(Page.Gang);
+      } else if (event.code === KEYCODE.L && event.altKey) {
+      	event.preventDefault();
+      	clickPage(Page.DevMenu);
       }
     }
 
@@ -302,6 +305,7 @@ export function SidebarRoot(props: IProps): React.ReactElement {
             { key_: Page.ActiveScripts, icon: StorageIcon },
             { key_: Page.CreateProgram, icon: BugReportIcon, count: programCount },
             canStaneksGift && { key_: Page.StaneksGift, icon: DeveloperBoardIcon },
+            { key_: Page.DevMenu, icon: DeveloperBoardIcon },
           ]}
         />
         <Divider />
@@ -367,7 +371,6 @@ export function SidebarRoot(props: IProps): React.ReactElement {
             { key_: Page.Tutorial, icon: HelpIcon },
             { key_: Page.Achievements, icon: EmojiEventsIcon },
             { key_: Page.Options, icon: SettingsIcon },
-            process.env.NODE_ENV === "development" && { key_: Page.DevMenu, icon: DeveloperBoardIcon },
           ]}
         />
       </List>
